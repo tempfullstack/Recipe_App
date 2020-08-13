@@ -5,10 +5,10 @@ const Recipes = props => (
   <div className="container">
     <div className="row">
       {props.recipes &&
-        props.recipes.map(recipe => {
+        props.recipes.map((recipe, index) => {
           return (
             <div
-              key={recipe.recipe_id}
+              key={`${recipe.recipe_id}_${index}`}
               className="col-md-4"
               style={{
                 marginBottom: "2rem"
