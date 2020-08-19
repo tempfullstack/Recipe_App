@@ -155,3 +155,8 @@ input:-webkit-autofill {
   text-transform: uppercase;
   font-weight: 500;
 }
+
+.header {
+  display: flex;
+  justify-content: center !important;
+}
