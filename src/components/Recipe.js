@@ -6,13 +6,13 @@ class Recipe extends React.Component {
     activeRecipe: []
   };
   componentDidMount = async () => {
-    const title = this.props.location.state.recipe;
+    const recipeId = this.props.location.state.recipe;
     const req = await fetch(
-      `https://cors-anywhere.herokuapp.com/https://recipesapi.herokuapp.com/api/search?q=${title}`
+      `http://localhost:8080/recipes/${recipeId}`
     );
 
     const res = await req.json();
-    this.setState({ activeRecipe: res.recipes[0] });
+    this.setState({ activeRecipe: res.recipe });
     console.log(this.state.activeRecipe);
   };
   render() {
@@ -33,7 +33,7 @@ class Recipe extends React.Component {
             <p className="active-recipe__website">
               Website:{" "}
               <span>
-                <a href={recipe.publisher_url}>{recipe.publisher_url}</a>
+                <a href={recipe.source_url}>{recipe.publisher_url}</a>
               </span>
             </p>
             <button className="active-recipe__button">

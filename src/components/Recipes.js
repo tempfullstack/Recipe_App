@@ -35,7 +35,7 @@ const Recipes = props => (
                   <Link
                     to={{
                       pathname: `/recipe/${recipe.recipe_id}`,
-                      state: { recipe: recipe.title }
+                      state: { recipe: recipe.recipe_id }
                     }}
                   >
                     View Recipe

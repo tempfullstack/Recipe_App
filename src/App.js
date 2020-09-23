@@ -3,6 +3,7 @@ import './App.css';
 import Navigation from './components/Navigation.js';
 import Form from './components/Form.js';
 import Recipes from './components/Recipes.js';
+import { BASE_URL } from './utils';
 
 class App extends React.Component {
   state = {
@@ -11,7 +12,7 @@ class App extends React.Component {
   getRecipe = async (e) =>{
     const recipeName = e.target.elements.recipeName.value;
     e.preventDefault();
-    const api_call= await fetch(`https://cors-anywhere.herokuapp.com/https://recipesapi.herokuapp.com/api/search?q=${recipeName}&count=9`);
+    const api_call= await fetch(`${BASE_URL}/recipes?q=${recipeName}&count=9`);
     
     const data = await api_call.json();
     this.setState({recipes : data.recipes});
